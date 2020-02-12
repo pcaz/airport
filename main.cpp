@@ -20,21 +20,22 @@ int main(){
       std::exit(1);  
       
     }
+  csv_parser* parser = new csv_parser(); 
   while(!infile.eof()){
     //    std::cout << "toto"<<'\n';
-    char data;
+    std::string data;
+    std::getline(infile,data);
     //infile >> data;
-    //    std::getline(infile,data);
-    infile >> data;
+    if(data=="") break;
     airport* a = new airport();
-    csv_parser* parser = new csv_parser(); 
+
     parser->analyze(*a, data);
 
-    //    std::cout <<*a <<'\n';
+                    std::cout <<*a <<'\n';
 
 }
 
 
-  //      std::cout << "Name : "<< a->getName() << '\n';
-  //    std::cout << "Iso : "<< a->getIso() << '\n';
+  //        std::cout << "Name : "<< a->getName() << '\n';
+  //      std::cout << "Iso : "<< a->getIso() << '\n';
 }

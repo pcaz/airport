@@ -2,31 +2,29 @@
 #include "airport.hpp"
 
 
-airport::airport(std::array<char, 26> &n, std::array<char,4> &i) {
-   std::copy (std::begin(n), std::end(n), name.begin());
-   std::copy (std::begin(i), std::end(i), iso.begin());
-};
+airport::airport(std::string &n, std::string &i): name(n), iso(i) {};
 
-const std::array<char,4> airport::GetIso(){
+const std::string airport::GetIso(){
   return iso;
 }
 
-const std::array<char,26> airport::GetName(){
+const std::string airport::GetName(){
   return name;
 }
 
-void airport::SetIso (std::array<char,4> a) {
-    std::copy(std::begin(a), std::end(a), std::begin(this->iso));
+void airport::SetIso (std::string& a) {
+  this->iso=a;
   }
 
-void airport::SetName(std::array<char,26> a) {
-    std::copy(std::begin(a), std::end(a), std::begin(this->name));
+void airport::SetName(std::string& a) {
+  size_t p = a.find_last_not_of(" ");
+  if (std::string::npos != p)
+    a.erase(p+1);
+  this->name=a;
   }
 
-std::ostream& operator << (std::ostream& out, const airport& air)
+std::ostream& operator<< (std::ostream& out, const airport& air)
 {
-  std::string str1(air.name.data());
-  std::string str2(air.iso.data());
-  out << str1 << " "<< str2;
+    out << air.name << ":"<< air.iso;
     return out;
 }
