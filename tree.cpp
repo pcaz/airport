@@ -23,7 +23,7 @@ std::string tree::search(std::string& iso) {
   if (it != tree_.end())
     return it->second;
   else
-    return "no found";
+    return "not found";
 
 
 }

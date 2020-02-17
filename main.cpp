@@ -50,6 +50,7 @@ int main(){
   std::cout << '\n'<<'\n';
   std::cout <<"Input the Iso code of the airport"<< '\n'; 
   std::cin >> ISO;
+  for (auto & c :ISO) c = toupper(c);
   std::string airport = tree_->search(ISO);
   std::cout << "ISO code: "<<ISO << " -> "<< "Airport: "<<airport << '\n';
 }
