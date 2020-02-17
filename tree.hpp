@@ -11,7 +11,7 @@ public:
   void add(airport& a);
   //  remove(airport& a);
   void list();
-  void search(std::string& iso);
+  std::string search(std::string& iso);
   private:
     std::map<std::string, std::string> tree_;
 };

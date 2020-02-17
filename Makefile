@@ -12,12 +12,12 @@ CFLAGS=-Wall -g
 LDFLAGS=
 
 EXEC= main
-SRC= main.cpp airport.cpp csv_parser.cpp
+SRC= main.cpp airport.cpp csv_parser.cpp tree.cpp
 OBJ= $(SRC:.cpp=.o)
 
 all: $(EXEC)
 
-main:  main.o airport.o csv_parser.o
+main:  main.o airport.o csv_parser.o tree.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 
@@ -27,6 +27,8 @@ airport: airport.cpp airport.hpp
 csv_parser: csv_parser.cpp csv_parser.hpp
 	$(CC) -o $@ $^ $(LDFLAGS)
 
+tree: tree.cpp tree.hpp
+	$(CC) -o $@ $^ $(LDFLAGS)
 
 %.o: %.cpp
 	$(CC) -o $@ -c $< $(CFLAGS)
