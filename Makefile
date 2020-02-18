@@ -12,8 +12,11 @@ CFLAGS=-Wall -g
 LDFLAGS=
 
 EXEC= main
-SRC= main.cpp airport.cpp csv_parser.cpp tree.cpp
-OBJ= $(SRC:.cpp=.o)
+SRC= main.cpp airport.cpp csv_parser.cpp tree.cpp profiler.cpp
+OBJ= $(SRC=.o)
+
+%.o: %.cpp
+	$(CC) -o $@ -c $< $(CFLAGS)
 
 all: $(EXEC)
 
@@ -30,8 +33,9 @@ csv_parser: csv_parser.cpp csv_parser.hpp
 tree: tree.cpp tree.hpp
 	$(CC) -o $@ $^ $(LDFLAGS)
 
-%.o: %.cpp
-	$(CC) -o $@ -c $< $(CFLAGS)
+profiler: profiler.hpp ptofiler.cpp
+	$(CC) -o $@ $^ $(LDFLAGS)
+
 
 
 .PHONY: clean mrproper

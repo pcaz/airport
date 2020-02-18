@@ -33,7 +33,7 @@ int main(){
     //infile >> data;
     if(data=="") break;
     airport* a = new airport();
-
+    std::cout << data << '\n';
     parser->analyze(*a, data);
     tree_->add (*a);
 
