@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <sys/time.h>
+#include <ctime>
 #include "airport.hpp"
 #include "csv_parser.hpp"
 #include "tree.hpp"
@@ -25,8 +25,10 @@ int main(){
 
   
   //  std::map<std::string,std::string> airports;
-  timeval tv1,tv2;
-  gettimeofday(&tv1, 0);
+  std::clock_t    start;
+
+   start = std::clock();
+  
   //  std::cout << tv1.tv_usec << '\n';
 
   int nline_=0;
@@ -47,8 +49,8 @@ int main(){
     //                    std::cout <<*a <<'\n';
 
 }
-    gettimeofday(&tv2, 0);
-    std::cout << nline_ << " lines  in "<<(tv2.tv_usec - tv1.tv_usec)/1000<< " milliseconds"<< '\n';
+  
+    std::cout << nline_ << " lines  in "<<(std::clock() - start) / (double)(CLOCKS_PER_SEC / 1000)<< " milliseconds"<< '\n';
   //  tree_->list();
   //        std::cout << "Name : "<< a->getName() << '\n';
   //      std::cout << "Iso : "<< a->getIso() << '\n';
