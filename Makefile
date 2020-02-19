@@ -9,7 +9,7 @@ CC=g++
 
 CFLAGS=-Wall -g
 
-LDFLAGS=
+LDFLAGS= 
 
 EXEC= main
 SRC= main.cpp airport.cpp csv_parser.cpp tree.cpp profiler.cpp
