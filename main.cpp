@@ -8,10 +8,15 @@
 
 int main(){
 
-
+  int line__;
+  const int loop=100;
+  std::clock_t time;
+  std::clock_t sum = 0;
+  
   std::ifstream infile;
   std::string filename="airport-codes.csv";
-  
+
+ for(int i=0; i<loop; i++) { 
   infile.open(filename);
 
 
@@ -20,12 +25,15 @@ int main(){
       std::exit(1);  
       
     }
+
   csv_parser* parser = new csv_parser();
+
   tree* tree_ = new tree();
 
-  
+
   //  std::map<std::string,std::string> airports;
   std::clock_t    start;
+  std::clock_t    stop;
 
    start = std::clock();
   
@@ -49,9 +57,20 @@ int main(){
     //                    std::cout <<*a <<'\n';
 
 }
-  
-    std::cout << nline_ << " lines  in "<<(std::clock() - start) / (double)(CLOCKS_PER_SEC / 1000)<< " milliseconds"<< '\n';
-  //  tree_->list();
+
+     stop = std::clock();
+    
+     //    tree_->list();
+     time= (stop - start);
+     sum+= time;
+     //   std::cout << (stop - start) / (double)(CLOCKS_PER_SEC / 1000)<< " milliseconds"<< '\n';
+    line__ = nline_;
+    //    std::cout << "Time : " << times[i] << '\n';
+    infile.close();
+ }
+ std::time_t val=sum/loop; 
+ std::cout << val/(double)(CLOCKS_PER_SEC / 1000)<< " milliseconds"<< '\n';
+ std::cout << "numbers of lines: " << line__<< '\n';
   //        std::cout << "Name : "<< a->getName() << '\n';
   //      std::cout << "Iso : "<< a->getIso() << '\n';
 
