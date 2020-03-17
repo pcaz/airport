@@ -9,13 +9,14 @@
 int main(){
 
   int line__;
-  const int loop=100;
+  int loop;
   std::clock_t time;
   std::clock_t sum = 0;
   
   std::ifstream infile;
   std::string filename="airport-codes.csv";
-
+  std::cout <<"Number of loops ?: "<<'\n';
+  std::cin >> loop; 
  for(int i=0; i<loop; i++) { 
   infile.open(filename);
 
@@ -68,9 +69,13 @@ int main(){
     //    std::cout << "Time : " << times[i] << '\n';
     infile.close();
  }
+ // tree_->list();
  std::time_t val=sum/loop; 
- std::cout << val/(double)(CLOCKS_PER_SEC / 1000)<< " milliseconds"<< '\n';
- std::cout << "numbers of lines: " << line__<< '\n';
+
+ std::cout << val/(double)(CLOCKS_PER_SEC / 1000)<< " milliseconds medium time"<< '\n';
+ std::cout << "number of lines: " << line__<< '\n';
+  std::cout << "number of loops: " << loop << '\n';
+
   //        std::cout << "Name : "<< a->getName() << '\n';
   //      std::cout << "Iso : "<< a->getIso() << '\n';
 
